@@ -3,10 +3,9 @@
 const http = require("http");
 const randomArray = require("./array");
 
-http.createServer((request, response) => {
-    console.log("Server is running on port 8080");
-    let printedQuote = randomArray();
-    response.writeHead(200, { "Content-type": "text/plain" });
-    response.write(printedQuote);
-    response.end();
+http.createServer((req, res) => {
+    let quote = randomArray();
+    res.writeHead(200, { "Content-type": "text/plain" });
+    res.write(quote);
+    res.end();
 }).listen(8080);
